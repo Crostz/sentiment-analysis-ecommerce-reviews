@@ -1,0 +1,50 @@
+header {
+    background-color:crimson;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Contenedor general */
+.layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Columnas laterales (vallas publicitarias) */
+/* Columna izquierda */
+.columna.izquierda {
+    width: 200px;
+    background-color: #ddd;
+    padding: 20px;
+    text-align: left;      /* Orientación a la izquierda */
+    border-radius: 10px;
+}
+
+/* Columna derecha */
+.columna.derecha {
+    width: 200px;
+    background-color: #ddd;
+    padding: 20px;
+    text-align: right;     /* Orientación a la derecha */
+    border-radius: 10px;
+}
+
+
+/* Zona central */
+.contenido {
+    width: 60%;                 /* El centro ocupa el 60% */
+    display: flex;
+    justify-content: center;
+}
+
+/* Recuadro de texto */
+.recuadro {
+    width: 90%;                 /* No ocupa todo el centro */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

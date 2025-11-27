@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Convocar a archivo css-->
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<!--JavaScript-->
+<script>
+    document.getElementById("btn").addEventListener("click", async () => {
+    const texto = document.getElementById("texto").value;
+
+    const respuesta = await fetch("/predecir", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ texto: texto })
+    });
+
+    const data = await respuesta.json();
+
+    document.getElementById("resultado").innerText =
+        "La reseña es: " + data.prediccion;
+    });
+
+</script>
+
+<body>
+    <!--Mi turno llegó. La página arribó-->
+
+    <!--Header-->
+    <header>PRUEBA 1</header>
+    
+    <!--Contenedor del recuadro para escribir reseñas-->
+    <div class="contenedor">
+
+        <!--Cuadro de texto-->
+        <div class="layout">
+            <div class="columna izquierda">
+                <p>Publicidad 1</p>
+            </div>
+
+            <div class="recuadro">
+                <h2>Escribe tu reseña</h2>
+                <form method="POST" action="{% url 'predecir' %}">
+                    {% csrf_token %}
+                    <textarea name="texto" rows="6" placeholder="Escribe tu reseña aquí..."></textarea>
+                    <button type="submit">Enviar reseña y predecir</button>
+                </form>
+
+
+                <p id="resultado">La reseña es {{ resultado }}</p> <!-- Aquí aparecerá la predicción -->
+            </div>
+
+            <div class="columna derecha">
+                <p>Publicidad 2</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

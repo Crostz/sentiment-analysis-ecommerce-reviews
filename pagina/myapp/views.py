@@ -18,4 +18,8 @@ def predecir(request):
     if request.method == "POST":
         texto = request.POST.get("texto")
         pred = modelo.predict([texto])[0]
-        return render(request, "myapp/base.html", {"resultado": pred})
+        return render(request, "myapp/base.html", {
+            "resultado": pred,
+            "texto": texto   # Texto a template
+        })
+    return render(request, "myapp/base.html")

@@ -46,7 +46,7 @@
                 <h2>Escribe tu reseña</h2>
                 <form method="POST" action="{% url 'predecir' %}">
                     {% csrf_token %}
-                    <textarea name="texto" rows="6" placeholder="Escribe tu reseña aquí..."></textarea>
+                    <textarea name="texto" rows="6" placeholder="Escribe tu reseña aquí..." required>{{ texto }}</textarea>
                     <button type="submit">Enviar reseña y predecir</button>
                 </form>
 

@@ -1,63 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--Convocar a archivo css-->
-    <link rel="stylesheet" href="../static/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!--Convocar a archivo css-->
+        <link rel="stylesheet" href="../../static/style.css">
+    </head>
 
-<!--JavaScript-->
-<script>
-    document.getElementById("btn").addEventListener("click", async () => {
-    const texto = document.getElementById("texto").value;
+    <!--JavaScript-->
+    <!--script>
+        document.getElementById("btn").addEventListener("click", async () => {
+        const texto = document.getElementById("texto").value;
 
-    const respuesta = await fetch("/predecir", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ texto: texto })
-    });
+        const respuesta = await fetch("/predecir", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ texto: texto })
+        });
 
-    const data = await respuesta.json();
+        const data = await respuesta.json();
 
-    document.getElementById("resultado").innerText =
-        "La reseña es: " + data.prediccion;
-    });
+        document.getElementById("resultado").innerText =
+            "La reseña es: " + data.prediccion;
+        });
 
-</script>
+    </script-->
 
-<body>
-    <!--Mi turno llegó. La página arribó-->
+    <body>
+        <!--Mi turno llegó. La página arribó-->
 
-    <!--Header-->
-    <header>PRUEBA 1</header>
-    
-    <!--Contenedor del recuadro para escribir reseñas-->
-    <div class="contenedor">
+        <!--Header-->
+        <!--Letras con estilo-->
+        <header>
+            <h2 style="font-family:Arial; font-size:38px; font-weight:10px;">PrediceYa</h2>
+            <h3 style="font-family:Arial; font-size:20px; font-weight:5px;">
+                Predicción de sentimientos en reseñas de productos, por Hesse & Co.
+            </h3>
+        </header>
+        
+        <!--Contenedor del recuadro para escribir reseñas-->
+        <div class="contenedor">
 
-        <!--Cuadro de texto-->
-        <div class="layout">
-            <div class="columna izquierda">
-                <p>Publicidad 1</p>
+            <!--Cuadro de texto-->
+            <div class="layout">
+                <div class="columna izquierda">
+                    <!--Colocar imagen Pub1.jpg de carpeta images-->
+                    <img src="../../static/images/Pub1.jpg" alt="Publicidad 1">
+
+                </div>
+
+                <div class="contenido">
+                    <div class="recuadro">
+                        <h2>Escribe tu reseña</h2>
+                        <form method="POST" action="{% url 'predecir' %}">
+                            {% csrf_token %}
+                            <textarea name="texto" rows="6" placeholder="Escribe tu reseña aquí..." required>{{ texto }}</textarea>
+                            <button type= "submit">Enviar reseña y predecir</button>
+                        </form>
+
+
+                        <p id="resultado">La reseña es {{ resultado }}</p> <!-- Aquí aparecerá la predicción -->
+                    </div>
+                </div>
+
+                <div class="columna derecha">
+                    <!--Colocar imagen Pub2.jpg de carpeta images-->
+                    <img src="../../static/images/Pub2.jpg" alt="Publicidad 2">
+
+                </div>
             </div>
 
-            <div class="recuadro">
-                <h2>Escribe tu reseña</h2>
-                <form method="POST" action="{% url 'predecir' %}">
-                    {% csrf_token %}
-                    <textarea name="texto" rows="6" placeholder="Escribe tu reseña aquí..." required>{{ texto }}</textarea>
-                    <button type="submit">Enviar reseña y predecir</button>
-                </form>
-
-
-                <p id="resultado">La reseña es {{ resultado }}</p> <!-- Aquí aparecerá la predicción -->
+            <br>
+            <!--Publicidad orientada horizontalmente, de extremo a extremo-->
+            <div class="pub-horiozntal">
+                <img src="../../static/images/Pub3.png" alt="Publicidad 3" style="width:100%; margin-top:20px;">
             </div>
 
-            <div class="columna derecha">
-                <p>Publicidad 2</p>
+            <!--Pequeño indicador de instrucciones para el correcto uso de la página-->
+            <div style="text-align:center; padding:20px;">
+                <p>Instrucciones: Escribe una reseña en el cuadro de texto y presiona el botón para predecir si es positiva, negativa o neutra.</p>
             </div>
         </div>
-    </div>
-</body>
+
+        <script>
+            document.getElementById("btn").addEventListener("click", async () => {
+            const texto = document.getElementById("texto").value;
+
+            const respuesta = await fetch("/predecir", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ texto: texto })
+            });
+
+            const data = await respuesta.json();
+
+            document.getElementById("resultado").innerText =
+                "La reseña es: " + data.prediccion;
+            });
+
+        </script>
+    </body>
+
+    <!--Parte final: derechos reservados, Facebook, Gmail, etc-->
+    <!--Footer centrado-->
+    <footer style="text-align: center; padding: 20px; background-color: #f1f1f1;">
+        <p>© 2025 Hesse & Co. Todos los derechos reservados.</p>
+        <p>Síguenos en
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>, 
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>, 
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </p>
+        <!--Contacto-->
+        <p>Contacto: <a href="https:://www.gmail.com" target="_blank"> Gmail</a></p>
+    </footer>
 </html>

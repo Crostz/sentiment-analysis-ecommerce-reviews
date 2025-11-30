@@ -3,7 +3,7 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
-    font-size: 24px;
+    /*font-size: 24px;*/
 }
 
 /* Contenedor general */
@@ -38,13 +38,42 @@ header {
     width: 60%;                 /* El centro ocupa el 60% */
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 /* Recuadro de texto */
 .recuadro {
     width: 90%;                 /* No ocupa todo el centro */
+    /* Recuadro centrado*/
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Para imagen de publicidad 1*/
+.columna.izquierda img {
+    max-width: 100%;   /* La imagen nunca será más ancha que su contenedor */
+    height: auto;      /* Mantiene la proporción */
+    display: block;    /* Elimina espacios extra alrededor */
+    border-radius: 8px; /* Opcional: esquinas redondeadas */
+}
+
+.columna.derecha img {
+    max-width: 100%;   /* La imagen nunca será más ancha que su contenedor */
+    height: auto;      /* Mantiene la proporción */
+    display: block;    /* Elimina espacios extra alrededor */
+    border-radius: 8px; /* Opcional: esquinas redondeadas */
+}
+
+/* Publicidad horizontal */
+.pub-horiozntal img {
+    max-width: 100%;   /* La imagen nunca será más ancha que su contenedor */
+    height: auto;      /* Mantiene la proporción */
+    display: block;    /* Elimina espacios extra alrededor */
+    border-radius: 8px; /* Opcional: esquinas redondeadas */
 }

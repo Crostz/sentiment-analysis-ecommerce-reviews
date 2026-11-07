@@ -3,7 +3,7 @@
 ## Fuente de datos
 
 **1. Amazon Sales Dataset** (`amazon.csv`)
-Autor: [completar], disponible en [Kaggle]([link]). Licencia: [confirmar en la ficha de Kaggle].
+Autor: [completar], disponible en [Kaggle]([https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset]). Licencia: [confirmar en la ficha de Kaggle].
 
 **2. Reseñas de Amazon con polaridad** (`train_lite.csv`, 10,000 reseñas)
 Fuente: [completar con el dataset original y su link]. Licencia: [confirmar].

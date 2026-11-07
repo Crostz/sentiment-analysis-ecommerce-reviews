@@ -12,7 +12,7 @@ Este proyecto es de carácter educativo/portafolio y no comercial.
 ¿Se puede clasificar automáticamente una reseña como positiva o negativa para medir la satisfacción de los clientes sin leer cada comentario?
 
 ## Resultados
-Se elaboró un modelo sobre 200,000 reseñas, 180,000 para el entrenamiento y 20,000 para la prueba.
+Se elaboró un pipeline **TfidfVectorizer + Logistic Regression** sobre 200,000 reseñas, 180,000 para el entrenamiento y 20,000 para la prueba.
 
 | Modelo | Accuracy | F1 macro |
 |---|---|---|

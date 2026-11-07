@@ -3,7 +3,7 @@
 ## Fuente de datos
 
 **1. Amazon Reviews for Sentiment Analysis** 
-Autor: [Adam Bittlingmayer], disponible en [Kaggle](https://www.kaggle.com/datasets/bittlingmayer/amazonreviews/data). Licencia: [Unknown].
+Autor: Adam Bittlingmayer, disponible en [Kaggle](https://www.kaggle.com/datasets/bittlingmayer/amazonreviews/data). Licencia: Unknown.
 
 Los datasets no se incluyen en este repositorio; descárgalos desde los links anteriores.
 Este proyecto es de carácter educativo/portafolio y no comercial.

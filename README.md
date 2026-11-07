@@ -2,7 +2,7 @@
 
 ## Fuente de datos
 
-**1. Amazon Reviews for Sentiment Analysis** (`amazon.csv`)
+**1. Amazon Reviews for Sentiment Analysis** 
 Autor: [Adam Bittlingmayer], disponible en [Kaggle](https://www.kaggle.com/datasets/bittlingmayer/amazonreviews/data). Licencia: [Unknown].
 
 Los datasets no se incluyen en este repositorio; descárgalos desde los links anteriores.
@@ -12,7 +12,7 @@ Este proyecto es de carácter educativo/portafolio y no comercial.
 ¿Se puede clasificar automáticamente una reseña como positiva o negativa para medir la satisfacción de los clientes sin leer cada comentario?
 
 ## Resultados
-Se compararon tres clasificadores sobre 180,000 reseñas para el entrenamiento y 20,000 para la prueba.
+Se elaboró un modelo sobre 200,000 reseñas, 180,000 para el entrenamiento y 20,000 para la prueba.
 
 | Modelo | Accuracy | F1 macro |
 |---|---|---|
@@ -22,10 +22,9 @@ Se compararon tres clasificadores sobre 180,000 reseñas para el entrenamiento y
 1. La regresión logística fue el mejor modelo (92% de accuracy, F1 macro de 0.92) y es el que se guardó para su uso.
 
 ## Consideraciones durante la preparación de datos
-1. En `amazon.csv` casi todas las reseñas son positivas (1,110 positivas, 348 neutras y 6 negativas), por lo que se combinó con un segundo dataset para tener ejemplos negativos.
-2. Las etiquetas de `amazon.csv` se construyeron a partir del rating; las del segundo dataset ya venían con polaridad binaria. Ambas fuentes tienen criterios de etiquetado distintos.
-3. Se eliminaron las filas con rating no numérico.
-4. Distribución final de clases: Positivo 52.9%, Negativo 44.0%, Neutro 3.0%.
+1. Las clases, positiva y negativa, se encuentran balanceadas, y la diferencia en volumen es mínima.
+2. No solo el contenido de las reseñas aporta al modelo, también se debe considerar el título de la reseña.
+3. Artefactos en el texto como las mayúsculas enriquecen el análisis de sentimientos, por lo que el preprocesamiento no debe ser muy intrusivo.
 
 ## Definiciones
 * Positivo: rating >= 4.0
